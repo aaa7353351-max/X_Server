@@ -51,8 +51,11 @@ export async function createUser(userid, password, name, email) {
     email,
     url: "https://randomuser.me/api/portraits/men/29.jpg",
   };
+  console.log(user);
   users = [user, ...users];
   return user;
+
+  //   추가가 안됨 여기가 ??
 }
 
 // 로그인

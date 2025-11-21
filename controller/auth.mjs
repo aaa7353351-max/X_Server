@@ -5,14 +5,8 @@ import * as authRepository from "../data/auth.mjs";
 
 // 회원가입하는 함수
 export async function signup(req, res, next) {
-  const { id, userid, password, name, email } = req.body;
-  const user = await authRepository.createUser(
-    id,
-    userid,
-    password,
-    name,
-    email
-  );
+  const { userid, password, name, email } = req.body;
+  const user = await authRepository.createUser(userid, password, name, email);
 
   if (user) {
     res.status(201).json(user);
