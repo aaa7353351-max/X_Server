@@ -1,0 +1,33 @@
+import express from "express";
+import * as authRepository from "../data/auth.mjs";
+
+// >?
+
+// 회원가입하는 함수
+export async function signup(req, res, next) {
+  const { id, userid, password, name, email } = req.body;
+  const user = await authRepository.createUser(
+    id,
+    userid,
+    password,
+    name,
+    email
+  );
+
+  if (user) {
+    res.status(201).json(user);
+  }
+}
+//로그인하는 함수
+export async function login(req, res, next) {
+  const { userid, password } = req.body;
+  const user = await authRepository.login(userid, password);
+  if (user) {
+    res.status(200).json({ message: `${userid}님 로그인 완료` });
+  } else {
+    res
+      .status(404)
+      .json({ message: `${userid}님 아이디 또는 비번 확인하세요 ` });
+  }
+}
+// 로그인유지

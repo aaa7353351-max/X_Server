@@ -22,6 +22,6 @@ router.post("/", postController.createPost);
 router.put("/:id", postController.updatePost);
 
 // 포스트 삭제하기
-// http:/127.0.0.1:8000/post/:id
+// http:/127.0.0.1:8000/post/id
 router.delete("/:id", postController.deletePost);
 export default router;

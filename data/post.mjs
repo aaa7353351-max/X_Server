@@ -80,7 +80,5 @@ export async function update(id, text) {
 
 // 포스트 삭제
 export async function remove(id) {
-  posts = posts.filter((post) => {
-    post.id !== id;
-  });
+  posts = posts.filter((post) => post.id !== id);
 }
