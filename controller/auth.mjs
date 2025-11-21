@@ -40,6 +40,13 @@ export async function login(req, res, next) {
   }
   const token = await createJwtToken(user.id);
   res.status(200).json({ token, user });
-
+}
+export async function me(req, res, next) {
+  //   const user = await authRepository.findByUserid(userid);
+  //   if (!user){
+  //     return res.status(404).json({message: "일치하는 유저 없음"});
+  //   }
+  //   res.status(200).json({token: req.token,userid: user.userid})
+  res.status(200).json({ message: "성공했어" });
   // jwt 토큰 생성 조트와 토큰은 ?? 어웨이트 어쩔땐넣고 어쩔땐 ??
 }

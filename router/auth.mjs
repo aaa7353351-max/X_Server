@@ -2,7 +2,7 @@ import express from "express";
 import * as authController from "../controller/auth.mjs";
 import { body } from "express-validator";
 import { validate } from "../middleware/validator.mjs";
-
+import { isAuth } from "../middleware/auth.mjs";
 const router = express.Router();
 const validatorLogin = [
   body("userid")
@@ -32,6 +32,6 @@ router.post("/signup", validaterSignup, authController.signup);
 router.post("/login", validatorLogin, authController.login);
 
 // 로그인 유지
-
+router.post("/me", isAuth, authController.me);
 export default router;
 // 디폴트 설정 이유 "?"
