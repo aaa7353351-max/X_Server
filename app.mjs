@@ -3,7 +3,7 @@ import postsRouter from "./router/posts.mjs";
 import authRouter from "./router/auth.mjs";
 import { config } from "./config.mjs";
 // import { db } from "./db/database.mjs";
-
+// mysql mysql//
 const app = express();
 
 app.use(express.json());
